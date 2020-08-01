@@ -13,7 +13,7 @@ body {
 		background-color: rgba(0,0,0,0.4);
 		color: white;
 		margin: .7rem;
-		font-family: sans-serif;
+		font-family: 'helvetica neue';
 	}
 	.keys {
 		justify-content: center;
