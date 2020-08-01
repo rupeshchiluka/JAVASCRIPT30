@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+<title>1 - Drum Kit</title>
+<link rel="stylesheet"href="./style.css">
+</head>
+<body>
+
+<span class="keys">
+	<div data-key="65" class="key">
+		<kbd>A</kbd><br><span>CLAP</span>
+	</div>
+	<div data-key="83" class="key">
+		<kbd>S</kbd><br><span>HIHAT</span>
+	</div>
+	<div data-key="68" class="key">
+		<kbd>D</kbd><br><span>KICK</span>
+	</div>
+	<div data-key="70" class="key">
+		<kbd>F</kbd><br><span>OPENHAT</span>
+	</div>
+	<div data-key="71" class="key">
+		<kbd>G</kbd><br><span>BOOM</span>
+	</div>
+	<div data-key="72" class="key">
+		<kbd>H</kbd><br><span>RIDE</span>
+	</div>
+	<div data-key="74" class="key">
+		<kbd>J</kbd><br><span>SNARE</span>
+	</div>
+	<div data-key="75" class="key">
+		<kbd>K</kbd><br><span>TOM</span>
+	</div>
+	<div data-key="76" class="key">
+		<kbd>L</kbd><br><span>TINK</span>
+	</div>
+</span>
+
+<audio data-key="65" src="./Sounds/clap.wav"></audio>
+<audio data-key="83" src="./Sounds/hihat.wav"></audio>
+<audio data-key="68" src="./Sounds/kick.wav"></audio>
+<audio data-key="70" src="./Sounds/openhat.wav"></audio>
+<audio data-key="71" src="./Sounds/boom.wav"></audio>
+<audio data-key="72" src="./Sounds/ride.wav"></audio>
+<audio data-key="74" src="./Sounds/snare.wav"></audio>
+<audio data-key="75" src="./Sounds/tom.wav"></audio>
+<audio data-key="76" src="./Sounds/tink.wav"></audio>
+
+</body>
+<script>
+'use script'
+window.addEventListener("keydown", function(event) {
+	let button = document.querySelector(`div[data-key="${event.keyCode}"]`);
+	if (!button) return;
+	let audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
+	audio.currentTime = 0;
+	audio.play();
+	button.classList.add("playing");
+});
+document.querySelectorAll(".key").forEach(key => key.addEventListener("transitionend", function (event) {
+	this.classList.remove("playing");
+}));
+</script>
+</html>
