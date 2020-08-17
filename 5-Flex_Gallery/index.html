@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+	<title>FlexBox</title>
+<style>
+	* {
+		box-sizing: border-box;
+	}
+	/*.p1 { background-image:url(./image1.jpeg); }
+	.p2 { background-image:url(./image2.jpg); }
+	.p3 { background-image:url(./image3.jpeg); }
+	.p4 { background-image:url(./image4.jpeg); }
+	.p5 { background-image:url(./image5.jpeg); }*/
+	.p1 { background-image:url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500); }
+    .p2 { background-image:url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500); }
+    .p3 { background-image:url(https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&w=1500&h=1500&fit=crop&s=967e8a713a4e395260793fc8c802901d); }
+    .p4 { background-image:url(https://source.unsplash.com/ITjiVXcwVng/1500x1500); }
+    .p5 { background-image:url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500); }
+	body {
+		margin: 0;
+	}
+	.flexContainer {
+		display: flex;
+		font-family: 'Amatic SC', cursive;
+		color: white;
+		text-transform: uppercase;
+	}
+	.panel {
+		flex: 1;
+		min-height: 100vh;
+		background-position: center;
+		background-size: cover;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		overflow: hidden;
+		transition: flex .7s cubic-bezier(0.61,-0.19, 0.7,-0.11);
+	}
+	.panel p {
+		flex: 1;
+		margin: 0;
+		text-align: center;
+		font-size: 5rem;
+		text-shadow: 0 0 5px black, 0 0 10px #ddd;
+		font-weight: 100;
+		width: 100%;
+		transition: transform .5s cubic-bezier(.05,.68,.7,1.55);
+	}
+	.panel p:nth-child(1) {
+		min-height: 20%;
+		transform: translateY(-100%);
+		padding-top: 60px;
+	}
+	.panel p:nth-child(2) {
+		min-height: 40%;
+		font-size: 10rem;
+	}
+	.panel p:nth-child(3) {
+		min-height: 20%;
+		transform: translateY(100%);
+		padding-top: 30px;
+	}
+	.open {
+		flex: 5;
+	}
+	.translate {
+		transform: translateY(0%) !important;
+	}
+</style>
+</head>
+<body>
+<div class="flexContainer">
+	<div class="panel p1">
+		<p>HEY</p>
+		<p>LET'S</p>
+		<p>DANCE</p>
+	</div>
+	<div class="panel p2">
+		<p>Give</p>
+		<p>Take</p>
+		<p>Receive</p>
+	</div>
+	<div class="panel p3">
+		<p>Experience</p>
+		<p>It</p>
+		<p>Today</p>
+	</div>
+	<div class="panel p4">
+		<p>Give</p>
+		<p>All</p>
+		<p>You can</p>
+	</div>
+	<div class="panel p5">
+		<p>Life</p>
+		<p>In</p>
+		<p>Motion</p>
+	</div>
+</div>
+</body>
+<script>
+let panels = document.querySelectorAll(".panel");
+panels.forEach(item => item.addEventListener("click", function(){
+  item.classList.toggle("open");
+}))
+function Translate() {
+	this.childNodes[1].classList.toggle('translate');
+	this.childNodes[5].classList.toggle('translate');
+}
+panels.forEach(item => item.addEventListener("transitionend", Translate.bind(item)));
+</script>
+</html>
